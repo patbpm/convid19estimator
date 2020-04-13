@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic&display=swap);
 * {
   margin: 0;
   padding: 0;
@@ -129,6 +129,7 @@ fieldset {
 
 @media (min-width: 40em) {
   #contact h3 {
-    font-size: 3.5rem;
+    font-size: 1.5rm;
+    font-display: swap;
   }
 }

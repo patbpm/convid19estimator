@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -5,43 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Patrick Bope">
     <meta name="description" content="This is an example of app that estimate the impact of convid -19. The esult provide the severe and the normal impact.">
     <title>{% block title %} HOME | Welcome {% endblock %}</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" async>
+    <link rel="stylesheet" href="{% static 'convidapp/css/index.css' %}">
 </head>
 <body class="container">
     <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-                <a class="navbar-brand" href="/">Convid-19-Estimator</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentLG" aria-controls="navbarSupportedContentLG" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarSupportedContentLG">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Result 1<span class="sr-only">(current)</span></a>
-                        </li>
-                    
-                </div>
-            </nav>
-        </div>
         
-       
     </header>
     {% block content %}
     {% endblock %}
 
     <footer class="text-center">
-        <div class="container ">
-            <section class="">
-                <p>Designed by <a href="/">Patrick Bope</a></p>
-                <p>Copyright &copy; 2019 Convid-19-Estimataor.</p>
-                
-               
-            </section>
-        </div>
         
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous" defer></script>

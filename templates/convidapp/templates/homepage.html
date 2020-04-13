@@ -1,69 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="container">  
+    <form id="contact" action="" method="post">
+      <h3>COVID 2019 ESTIMATOR</h3>
+      <hr>
+      <br>
+      <fieldset>
+        <label for ="Period" >Period Type</label>
+            
+        <select id="Period"  size="0" name="data-period-type">
+            <option value="Days" selected="selected">Days</option>
+            <option value="Weeks">Weeks</option>
+            <option value="Weeks">Months</option>  
+        </select>
+      </fieldset>
+      <fieldset>
+        <label for= "TImetoElpase" >Time To Elapse</label>
+        <input id="TImetoElpase" value="Time To Elapse" name="data-time-to-elapse" type="text" tabindex="1" required autofocus>
+      </fieldset>
+      <fieldset>
+        <label for="ReportedCases" >Reported Cases</label>
+        <input id="ReportedCases" type="text" value="Reported Cases" name="data-reported-cases"tabindex="2" required>
+      </fieldset>
+      <fieldset>
+        <label for="Population" >Population</label>
+        <input id="Population" type="text" value="Population" name="data-population" tabindex="3" required>
+      </fieldset>
+      <fieldset>
+        <label for="HospitalBeds" >Total Hospital Beds</label>
+        <input id="HospitalBeds" type="text" value="Total Hospital Beds" name="data-total-hospital-beds" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <label for="Estimate" ></label>
+        <input id="Estimate" type="button"  value="Estimate" name="data-go-estimate">
+      </fieldset>
+      <p class="copyright">Designed by <a href="/" target="_blank" title="Colorlib">Patrick Bope. </a> Copyright &copy; 2019 Convid-19-Estimataor.</p>
+    </form>
+  </div>
     
-<div class="col-md-8 offset-md-2">
-    <span class="anchor" id="formUserEdit"></span>
-      <!-- form user info -->
-    <div class="card card-outline-secondary">
-        <div class="card-header">
-            <h3 class="mb-0">COVID 2019 ESTIMATOR</h3>
-        </div>
-        <div class="card-body">
-            <form class="form" role="form" autocomplete="off">
-                <div class="form-group row">
-                    <label for ="Period" class="col-lg-3 col-form-label form-control-label">Period Type</label>
-                    <div class="col-lg-9">
-                        <select id="Period" class="form-control" size="0" name="data-period-type">
-                            <option value="Days" selected="selected">Days</option>
-                            <option value="Weeks">Weeks</option>
-                            <option value="Weeks">Months</option>
-                            
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group row">
-                    <label for= "TImetoElpase" class="col-lg-3 col-form-label form-control-label">Time To Elapse</label>
-                    <div class="col-lg-9">
-                        <input id="TImetoElpase" class="form-control" type="text" value="Time To Elapse" name="data-time-to-elapse">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="ReportedCases" class="col-lg-3 col-form-label form-control-label">Reported Cases</label>
-                    <div class="col-lg-9">
-                        <input id="ReportedCases" class="form-control" type="text" value="Reported Cases" name="data-reported-cases">
-                    </div>
-                </div>
 
-                <div class="form-group row">
-                    <label for="Population" class="col-lg-3 col-form-label form-control-label">Population</label>
-                    <div class="col-lg-9">
-                        <input id="Population" class="form-control" type="text" value="Population" name="data-population">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="HospitalBeds" class="col-lg-3 col-form-label form-control-label">Total Hospital Beds</label>
-                    <div class="col-lg-9">
-                        <input id="HospitalBeds" class="form-control" type="text" value="Total Hospital Beds" name="data-total-hospital-beds">
-                    </div>
-                </div>
-                                       
-                
-                <div class="form-group row">
-                    <label for="Estimate" class="col-lg-3 col-form-label form-control-label"></label>
-                    <div class="col-lg-9">
-                        <input id="Estimate" type="button" class="btn btn-primary" value="Estimate" name="data-go-estimate">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /form user info -->
-
-</div>
-
-
-    
 
 {% endblock %}

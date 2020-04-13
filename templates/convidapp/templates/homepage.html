@@ -1,43 +1,115 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">  
-    <form id="contact" action="" method="post">
-      <h3>COVID 2019 ESTIMATOR</h3>
-      <hr>
-      
-      <fieldset>
-        <label for ="Period" >Period Type</label>
-            
-        <select id="Period"  size="0" name="data-period-type">
-            <option value="Days" selected="selected">Days</option>
-            <option value="Weeks">Weeks</option>
-            <option value="Weeks">Months</option>  
-        </select>
-      </fieldset>
-      <fieldset>
-        <label for= "TImetoElpase" >Time To Elapse</label>
-        <input id="TImetoElpase" value="Time To Elapse" name="data-time-to-elapse" type="text" required autofocus>
-      </fieldset>
-      <fieldset>
-        <label for="ReportedCases" >Reported Cases</label>
-        <input id="ReportedCases" type="text" value="Reported Cases" name="data-reported-cases" required>
-      </fieldset>
-      <fieldset>
-        <label for="Population" >Population</label>
-        <input id="Population" type="text" value="Population" name="data-population"  required>
-      </fieldset>
-      <fieldset>
-        <label for="HospitalBeds" >Total Hospital Beds</label>
-        <input id="HospitalBeds" type="text" value="Total Hospital Beds" name="data-total-hospital-beds"  required>
-      </fieldset>
-      <fieldset>
-        <label for="Estimate" ></label>
-        <input id="Estimate" type="button"  value="Estimate" name="data-go-estimate">
-      </fieldset>
-      <p class="copyright">Designed by <a href="/" target="_blank" title="Colorlib">Patrick Bope. </a> Copyright &copy; 2019 Convid-19-Estimataor.</p>
-    </form>
-  </div>
+<div class="container-fluid" style="min-height: 100vh;">
+    <main class="container">
+        <h1 class="text-danger text-center mt-4 mb-5">Covid-19 Impact Estimator</h1>
+        <div class='row'>
+            <div class='col-md-4'></div>
+            <form class='col-md-4 mb-5 p-3 bg-white text-danger border border-danger rounded' id='estimatorForm'
+                onsubmit="estimate()">
+                <div class="row m-1 p-1 border border-black rounded">
+                    <div class="col">
+                        <p class="text-center">Region Info</p>
+                        <div class="form-group">
+                            <label for="inputRegionName">Name</label>
+                            <input type="text" class="form-control" id="inputRegionName" name="RegionName"
+                                placeholder="Lagos">
+                            <small id="regionNameHelpBlock" class="form-text text-muted">
+                                Name of region you are estimating for.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPopulation">Region's Population</label>
+                            <input type="number" class="form-control" id="inputPopulation" name="population"
+                                placeholder="0" data-population>
+                            <small id="PopulationHelpBlock" class="form-text text-muted">
+                                Region's population.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputAverageAge">Average age</label>
+                            <input type="number" class="form-control" id="inputAverageAge" name="AverageAge"
+                                placeholder="0">
+                            <small id="averageAgeHelpBlock" class="form-text text-muted">
+                                Average age of region's population.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAverageDailyIncome">Average daily income in USD</label>
+                            <input type="number" class="form-control" id="inputAverageDailyIncome"
+                                name="AverageDailyIncome" placeholder="0">
+                            <small id="averageDailyIncomeHelpBlock" class="form-text text-muted">
+                                Average daily income of region's population in US Dollars.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputAverageDailyIncomePopulation">Average daily income population
+                                percentage</label>
+                            <input type="number" class="form-control" id="inputAverageDailyIncomePopulation"
+                                name="AverageDailyIncomePopulation" placeholder="0" min="50" max="100">
+                            <small id="averageDailyIncomePopulationHelpBlock" class="form-text text-muted">
+                                Percentage of population that earn average daily income
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-1 mt-3 mb-3 pt-1 pb-1 border border-black rounded">
+                    <div class="col">
+                        <p class="text-center">Infection Info</p>
+                        <div class="form-group">
+                            <label for="inputReportedCases">Reported Cases</label>
+                            <input type="number" class="form-control" id="inputReportedCases" name="ReportedCases"
+                                placeholder="0" data-reported-cases>
+                            <small id="reportedCasesHelpBlock" class="form-text text-muted">
+                                Official number of confirmed Covid-19 cases.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTotalHospitalBeds">Total Hospital Beds</label>
+                            <input type="number" class="form-control" id="inputTotalHospitalBeds"
+                                name="totalHospitalBeds" placeholder="0" data-total-hospital-beds>
+                            <small id="totalHospitalBedsHelpBlock" class="form-text text-muted">
+                                Total number of hospital beds in Region.
+                            </small>
+                        </div>
+
+                        <fieldset>
+                            <legend>Estimation Period</legend>
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <label for="inputPeriod">Period</label>
+                                    <input type="number" class="form-control" id="inputPeriod" name="period"
+                                        placeholder="0" data-time-to-elapse>
+                                </div>
+
+                                <div class="form-group col-sm-6">
+                                    <label for="inputPeriodType">Type</label>
+                                    <select type="select" class="form-control" id="inputPeriodType"
+                                        name="periodType" data-period-type>
+                                        <option value="days">Days</option>
+                                        <option value="weeks">Weeks</option>
+                                        <option value="months">Months</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <small id="estimationPeriodHelpBlock" class="form-text text-muted">
+                                Period to use for estimation.
+                            </small>
+                        </fieldset>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger" data-go-estimate>Submit</button>
+            </form>
+            <div class='col-md-4'></div>
+        </div>
+        <div id='results'></div>
+    </main>
+</div>
+
     
 
 

@@ -10,11 +10,15 @@
     <meta name="description" content="This is an example of app that estimate the impact of convid -19. The esult provide the severe and the normal impact.">
     <title>{% block title %} HOME | Welcome {% endblock %}</title>
     <link rel="preload" href="{% static 'convidapp/css/index.css' %}" as="style">
+    <link rel="stylesheet" href="{% static 'convidapp/css/index.css' %}" >
+    
     <style>
         body {
             background: linear-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.8));
             background-color: #202020;
             background-size: cover;
+            padding: 18px;
+            margin: 18px;
         }
         @media (max-width: 300px) {
             body { background-color: #405856; }

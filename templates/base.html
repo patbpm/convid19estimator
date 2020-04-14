@@ -12,22 +12,16 @@
     <link rel="stylesheet" href="{% static 'convidapp/css/index.css' %}" >
     <style>
         body {
-            background: linear-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.8)), url("{% static 'convidapp/img/close-up-photography-of-colored-pencils-743986.jpeg' %}" ) no-repeat center;
+            background: linear-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.8));
             background-color: #202020;
             background-size: cover;
         }
     </style>
 </head>
-<body class="container">
-    <header>
-        <h1>HOME</h1>
-    </header>
+<body >
+    
     {% block content %}
     {% endblock %}
-
-    <footer class="text-center">
-        
-    </footer>
 
     <script src="{% static 'convidapp/js/index.js' %}"></script>
 

@@ -9,7 +9,7 @@
     <meta name="author" content="Patrick Bope">
     <meta name="description" content="This is an example of app that estimate the impact of convid -19. The esult provide the severe and the normal impact.">
     <title>{% block title %} HOME | Welcome {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'convidapp/css/index.css' %}" >
+    <link rel="preload" href="{% static 'convidapp/css/index.css' %}" as="style">
     <style>
         body {
             background: linear-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.8));

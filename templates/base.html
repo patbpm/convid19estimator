@@ -9,16 +9,35 @@
     <meta name="author" content="Patrick Bope">
     <meta name="description" content="This is an example of app that estimate the impact of convid -19. The esult provide the severe and the normal impact.">
     <title>{% block title %} HOME | Welcome {% endblock %}</title>
-    <link rel="preload" href="{% static 'convidapp/css/index.css' %}" as="style">
+    <link rel="preload" href="{% static 'convidapp/css/bootstrap.min.css' %}" as="style">
     
     
     <style>
-        body {
-            background: linear-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.8));
-            background-color: #202020;
-            background-size: cover;
-            padding: 50px;
-            margin: 10px;
+        body{
+            background-color: rgb(25, 28, 70);
+            color:white;
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            color: white;
+            text-align: left;
+            width: 100% !important;
+            margin: 0 !important;
+            display: flex;
+        }
+        .container{
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        input{
+            font-size: 20px !important;
+            font-weight: bold !important;
+            font-family: sans-serif !important;
+
         }
 
         input {

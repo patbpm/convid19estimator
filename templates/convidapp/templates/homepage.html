@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
+
 <div class="container">
     <h2 class="text-danger text-center mt-4 mb-5">Covid-19 Impact Estimator</h2>
+    
     <div class="row">
-        <form class="col-md-4 mb-5 p-3 bg-white text-danger border border-danger rounded">
+      <form method="post" class="col-md-4 mb-5 p-3 bg-white text-danger border border-danger rounded">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <button type="submit" class="btn btn-primary" id="data-go-estimate">Estimate</button>
+      </form>
+      {% comment %}
+        <form method="post" class="col-md-4 mb-5 p-3 bg-white text-danger border border-danger rounded">
+          
+          
       
-            <div class="col-md-6 border-black rounded">
+            <div class="col-md-10 border-black rounded">
               <div class="row ">
                 <div class="form-group">
                   <label for="PeriodType">Period Type</label>
                       <div class="input-group">
-                          <select class="custom-select form-control" id="PeriodType">
+                          <select class="custom-select form-control" name="PeriodType">
                               <option value="" selected disabled hidden>Choose..</option>
                               <option value=Days>Days</option>
                               <option value=Weeks>Weeks</option>
@@ -22,7 +33,7 @@
               <div class="row">
                   <div class="form-group">
                     <label for="timeToElapse">Time to Elapse</label>
-                    <input type="text" class="form-control" placeholder="" id="timeToElapse">
+                    <input type="text" class="form-control" placeholder="" name="timeToElapse">
                   </div>
           
           
@@ -30,19 +41,19 @@
               <div class="row ">
                   <div class="form-group">
                     <label for="population">Population</label>
-                    <input type="text" class="form-control" placeholder="" id="population">
+                    <input type="text" class="form-control" placeholder="" name="population">
                   </div>
               </div>
               <div class="row">
                     <div class="form-group">
                       <label for="ReportedCases">Reported Cases</label>
-                      <input type="text" class="form-control" placeholder="" id="ReportedCases">
+                      <input type="text" class="form-control" placeholder="" name="ReportedCases">
                     </div>
               </div>
               <div class="row">
                   <div class="form-group">
                     <label for="totalHospitalBeds">Total Hospital Beds</label>
-                    <input type="text" class="form-control" placeholder="" id="totalHospitalBeds">
+                    <input type="text" class="form-control" placeholder="" name="totalHospitalBeds">
                   </div>
               </div>
              
@@ -51,6 +62,7 @@
         
             <button type="submit" class="btn btn-primary" id="data-go-estimate">Estimate</button>
         </form>
+        {% endcomment %}
         <div class="col-md-8 mb-5 p-3 bg-white text-danger border border-danger rounded">
 
         </div>
